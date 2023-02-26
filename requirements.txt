@@ -28,6 +28,7 @@ pre-commit==3.1.0
 pycodestyle==2.10.0
 pyflakes==3.0.1
 Pygments==2.14.0
+pynyu @ file:///Users/walt/Work/pynyu/f-spec-out-initial-lib-ideas/dist/pynyu-0.0.3-py3-none-any.whl
 pyproject_hooks==1.0.0
 PyYAML==6.0
 readme-renderer==37.3
