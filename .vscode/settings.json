@@ -9,8 +9,6 @@
     "editor.defaultFormatter": "ms-python.black-formatter"
   },
   "editor.formatOnSave": true,
-  "python.linting.flake8Enabled": true,
-  "python.linting.flake8Path": "flake8",
-  "python.linting.flake8Args": ["--config=.flake8"],
-  "python.linting.lintOnSave": true
+  "flake8.path": [".venv/bin/flake8"],
+  "flake8.args": ["--config=.flake8"]
 }

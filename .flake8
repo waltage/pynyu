@@ -1,5 +1,5 @@
 [flake8]
-extend-ignore = E111,E501,F401
+extend-ignore = E111,E501
 exclude =
   .git,
   .venv,
@@ -7,4 +7,7 @@ exclude =
   __pycache__,
   dist,
   scripts
+per-file-ignores =
+  # imported by not used in __init__
+  __init__.py: F401
 max-complexity = 10
