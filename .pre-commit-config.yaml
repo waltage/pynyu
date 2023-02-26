@@ -9,3 +9,9 @@ repos:
     rev: 22.10.0
     hooks:
       - id: black
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks:
+      - id: python-use-type-annotations
+      - id: python-no-eval
+      - id: python-check-mock-methods
