@@ -7,8 +7,8 @@ class MultiplySequence(object):
     def __init__(self, low: int, high: int):
         if low < 1:
             raise ValueError("sequence must be over positive integers")
-        if high <= low:
-            raise ValueError("sequence must be strictly increasing")
+        if high < low:
+            raise ValueError("sequence must be monotonic increasing")
         if not isinstance(low, int) or not isinstance(high, int):
             raise TypeError("sequence must be over integers")
         self.low = low
@@ -49,26 +49,26 @@ class Factorial(object):
         result = deepcopy(self)
         if isinstance(other, Factorial):
             result.__sequences.extend(other.__sequences)
-            result.__sequences.sort(lambda x: (x.low, x.high))
+            result.__sequences.sort(key=lambda x: (x.low, x.high))
             return result
         elif isinstance(other, MultiplySequence):
             result.__sequences.append(other)
-            result.__sequences.sort(lambda x: (x.low, x.high))
+            result.__sequences.sort(key=lambda x: (x.low, x.high))
             return result
         elif isinstance(other, int):
             # find if this int can be extended on one of the sequences
             for _ in result.__sequences:
                 if other == _.low - 1:
                     _.low -= 1
-                    result.__sequences.sort(lambda x: (x.low, x.high))
+                    result.__sequences.sort(key=lambda x: (x.low, x.high))
                     return result
                 elif other == _.high + 1:
                     _.high += 1
-                    result.__sequences.sort(lambda x: (x.low, x.high))
+                    result.__sequences.sort(key=lambda x: (x.low, x.high))
                     return result
             # not contiguous, create a new one
             result.__sequences.append(MultiplySequence(other, other))
-            result.__sequences.sort(lambda x: (x.low, x.high))
+            result.__sequences.sort(key=lambda x: (x.low, x.high))
             return result
         raise TypeError(
             "can only multiply Factorial with Factorial, MultipleSequence, or int"

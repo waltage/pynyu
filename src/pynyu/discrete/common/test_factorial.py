@@ -9,7 +9,7 @@ def test_bad_sequence_non_positive():
         MultiplySequence(-1, 100)
 
 
-def test_bad_sequence_non_increasing():
+def test_bad_sequence_non_monotonic_increasing():
     with pytest.raises(ValueError):
         MultiplySequence(10, 4)
 
@@ -49,13 +49,23 @@ def test_factorial_basic():
 def test_factorial_multipy_factorial():
     f1 = Factorial(5)
     f2 = Factorial(10)
-    f3 = f1 * f2
-    assert f3.value == math.factorial(5) * math.factorial(10)
-    assert str(f3) == "5! * 10!"
+    f3a = f1 * f2
+    assert f3a.value == math.factorial(5) * math.factorial(10)
+    assert str(f3a) == "5! * 10!"
 
+    # check string invariant representation (sorted)
+    f3b = f2 * f1
+    assert f3b.value == math.factorial(5) * math.factorial(10)
+    assert str(f3b) == "5! * 10!"
+
+    # check integer multiplcation high
     f4 = f1 * 6
     assert f4.value == math.factorial(6)
     assert str(f4) == "6!"
+
+    f4 = f1 * 3
+    assert f4.value == math.factorial(5) * 3
+    assert str(f4) == "5! * 3"
 
     s1 = MultiplySequence(3, 6)
     f5 = f1 * s1
