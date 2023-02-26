@@ -1,1 +1,1 @@
-from hello import hello_world
+from pynyu.hello import hello_world
