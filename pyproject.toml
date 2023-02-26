@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pynyu"
+version = "0.0.3"
+authors = [
+    { name="Daniel Walt", email="walt@danielwalt.io" },
+]
+description = "A python package for Graduate CS students"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/waltage/pynyu"
+"Bug Tracker" = "https://github.com/waltage/pynyu/issues"
+
+[tool.black]
+line-length = 85
+target-version = ["py37"]
+include = '\.pyi?$'

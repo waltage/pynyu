@@ -1,0 +1,13 @@
+[flake8]
+extend-ignore = E111,E501
+exclude =
+  .git,
+  .venv,
+  .vscode,
+  __pycache__,
+  dist,
+  scripts
+per-file-ignores =
+  # imported by not used in __init__
+  __init__.py: F401
+max-complexity = 10
