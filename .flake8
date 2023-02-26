@@ -1,3 +1,10 @@
 [flake8]
-extend-ignore = E111
+extend-ignore = E111,E501,F401
+exclude =
+  .git,
+  .venv,
+  .vscode,
+  __pycache__,
+  dist,
+  scripts
 max-complexity = 10

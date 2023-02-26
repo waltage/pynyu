@@ -1,9 +1,16 @@
 {
   "python.formatting.provider": "black",
+  "python.formatting.blackPath": "./.venv/bin/black",
+  "python.formatting.blackArgs": ["--config=pyproject.toml"],
+  "[python]": {
+    "editor.formatOnSave": true,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
   "editor.formatOnSave": true,
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
-  "editor.defaultFormatter": null,
   "python.linting.flake8Enabled": true,
+  "python.linting.flake8Path": "flake8",
+  "python.linting.flake8Args": ["--config=.flake8"],
   "python.linting.lintOnSave": true
 }
