@@ -15,3 +15,7 @@ repos:
       - id: python-use-type-annotations
       - id: python-no-eval
       - id: python-check-mock-methods
+  - repo: https://github.com/frostming/fix-future-annotations
+    rev: 0.5.0
+    hooks:
+      - id: fix-future-annotations
