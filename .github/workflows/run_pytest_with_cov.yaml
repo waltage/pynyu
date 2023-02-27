@@ -16,6 +16,7 @@ jobs:
       - name: Install Dependencies
         run: |
           python3 -m pip install --upgrade pip
+          pip3 install flake8 black
           if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
       - name: Enforce Lint
         run: flake8 . --config=.flake8
@@ -24,4 +25,4 @@ jobs:
       - name: Unit Tests
         run: |
           coverage run -m pytest .
-          coverate report
+          coverage report
