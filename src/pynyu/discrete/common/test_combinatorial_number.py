@@ -3,7 +3,7 @@ from __future__ import annotations
 from fractions import Fraction
 from math import factorial
 
-from pynyu.discrete.common.combinatorial_value import CombinatorialNumber
+from pynyu.discrete.common.combinatorial_number import CombinatorialNumber
 from pynyu.discrete.common.multiply_sequence import MultiplySequence
 
 
