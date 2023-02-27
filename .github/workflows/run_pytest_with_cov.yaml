@@ -1,0 +1,28 @@
+name: Run Python Unit Tests with Coverage
+run-name: ${{ github.actor }} running Tests
+on: [push]
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.10"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install flake8 black
+          if [ -f requirements.txt ]; then pip3 install -r requirements.txt; fi
+      - name: Enforce Lint
+        run: flake8 . --config=.flake8
+      - name: Enforce Format
+        run: black . --config=pyproject.toml
+      - name: Unit Tests
+        run: |
+          coverage run -m pytest .
+          coverage report
