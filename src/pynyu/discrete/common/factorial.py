@@ -5,8 +5,10 @@ from copy import deepcopy
 from pynyu.discrete.common.multiply_sequence import MultiplySequence
 
 
-class Factorial(object):
+class Factorial(MultiplySequence):
     def __init__(self, value: int):
+        super().__init__(2, value)
+
         self.__sequences = [MultiplySequence(2, value)]
 
     def __str__(self):
